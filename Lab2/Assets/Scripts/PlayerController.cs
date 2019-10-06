@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float startSpeed;
-
+    private float scale;
     private Rigidbody2D rb;
     public GameObject enemyPlanet;
     void Start()
     {
+        scale = 1.0f;
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -20,13 +21,21 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(new Vector2(moveHor * startSpeed, moveVer * startSpeed));
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if (other.gameObject.CompareTag("EnemyPlanet"))
+        if (collision.gameObject.CompareTag("EnemyPlanet"))
         {
-            other.gameObject.SetActive(false);
+            if (transform.localScale.magnitude > collision.transform.localScale.magnitude)
+            {
+                Destroy(collision.gameObject);
+                scale += 0.5f;
+                transform.localScale = new Vector3(scale, scale, 0.0f);
+            }
+            else
+            {
+                scale -= 0.5f;
+                transform.localScale = new Vector3(scale, scale, 0.0f);
+            }
         }
     }
 }

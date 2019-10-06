@@ -22,6 +22,7 @@ public class EnemyPlanetController : MonoBehaviour
         RandomGen();
         gameObject.GetComponent<SpriteRenderer>().sprite = spriteArray[Random.Range(0, spriteArray.Length)];
         gameObject.transform.localScale += new Vector3(scale, scale, 0);
+
     }
 
     // Update is called once per frame
@@ -31,22 +32,21 @@ public class EnemyPlanetController : MonoBehaviour
         if (dTime >= 5.0f)
         {
             RandomGen();
-            dTime = 0.0f;  
+            dTime = 0.0f;
         }
 
 
-       
+
     }
     void RandomGen()
     {
-       
+
         rb.velocity = new Vector3(0, 0, 0);
         moveHor = Random.Range(-10.0f, 10.0f);
         moveVer = Random.Range(-10.0f, 10.0f);
 
         rb.AddForce(new Vector2(moveHor * enemySpeed, moveVer * enemySpeed));
     }
-
-
+  
 }
 
