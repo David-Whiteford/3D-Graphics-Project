@@ -20,11 +20,12 @@ public class PlayerController : MonoBehaviour
         //set up the initial values
         winText.text = "";
         score = 0;
-        scale = 1.0f;
+        scale = 1;
         rb = gameObject.GetComponent<Rigidbody2D>();
         count = 0;
         //function for setting the text
         SetScoreText();
+        setScale();
     }
 
     void FixedUpdate()
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(new Vector2(moveHor * startSpeed, moveVer * startSpeed));
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         //check the player collides with enemy planet
         if (collision.gameObject.CompareTag("EnemyPlanet"))
@@ -68,8 +69,8 @@ public class PlayerController : MonoBehaviour
             {
                 //destroy player
                 Destroy(gameObject);
-                //decrement cout
-                count--;
+                //decrement count
+                score = -1;
             }
             //set tehe updated score
             SetScoreText();
@@ -80,13 +81,13 @@ public class PlayerController : MonoBehaviour
         //set the score
         scoreText.text = "Score: " + score.ToString();
         //if all enemy planets are dead
-        if(count >= 16)
+        if(score >= 16)
         {
            //set win text to you win
             winText.text = "YOU WIN ";
         }
         //if you are killed
-        if (count == -1)
+        if (score == -1)
         {
             //set win text to you loose
             winText.text = "YOU LOOSE ";
