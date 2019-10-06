@@ -9,13 +9,15 @@ public class EnemyPlanetController : MonoBehaviour
     private float dTime;
     private float scale;
     private Rigidbody2D rb;
+    private Rigidbody2D playerRb;
     private float moveHor;
     private float moveVer;
     public Sprite[] spriteArray;
+    public Sprite largePlanets;
     // Start is called before the first frame update
     void Start()
     {
-
+        playerRb = player.GetComponent<Rigidbody2D>();
         scale = Random.Range(0.01f, 1.5f);
         rb = gameObject.GetComponent<Rigidbody2D>();
         dTime = 0;
@@ -35,18 +37,22 @@ public class EnemyPlanetController : MonoBehaviour
             dTime = 0.0f;
         }
 
+       
+
 
 
     }
     void RandomGen()
     {
-
         rb.velocity = new Vector3(0, 0, 0);
         moveHor = Random.Range(-10.0f, 10.0f);
         moveVer = Random.Range(-10.0f, 10.0f);
 
         rb.AddForce(new Vector2(moveHor * enemySpeed, moveVer * enemySpeed));
     }
-  
+
+
+   
+
 }
 
