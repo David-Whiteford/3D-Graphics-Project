@@ -6,7 +6,7 @@ public class DestroyPlanet : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "EnemyPlanet")
+        if (collision.gameObject.CompareTag("EnemyPlanet"))
         {
             Destroy(collision.gameObject);
         }

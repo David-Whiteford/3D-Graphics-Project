@@ -15,11 +15,11 @@ public class EnemyPlanetController : MonoBehaviour
     public Sprite largePlanets;
     public GameObject scaleObject;
 
-   
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
         //sets up the intial values for random scale 
         scale = Random.Range(0.1f, 2.0f);
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -65,8 +65,5 @@ public class EnemyPlanetController : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = largePlanets;
         }
     }
-
- 
-
 }
 
