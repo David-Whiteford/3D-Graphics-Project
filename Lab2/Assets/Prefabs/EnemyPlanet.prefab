@@ -68,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 732400505
+  m_SortingLayerID: -1632340255
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5576d133134a11b4993a9e461b660b09, type: 3}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemySpeed: 25
+  enemySpeed: 50
   spriteArray:
   - {fileID: 21300000, guid: af8b9e1fef1b1f844b35eee6ec94ec04, type: 3}
   - {fileID: 21300000, guid: 70e0aafa01d43a645bea6a6c1904339f, type: 3}
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 4aff7bcc1110be346a354830cbabd22d, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

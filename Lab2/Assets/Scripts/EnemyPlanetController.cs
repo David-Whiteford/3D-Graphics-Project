@@ -48,8 +48,8 @@ public class EnemyPlanetController : MonoBehaviour
         //set the velocity of object to 0
         rb.velocity = new Vector3(0, 0, 0);
         //get 2 new values for variables between -10 and 10
-        moveHor = Random.Range(-10.0f, 10.0f);
-        moveVer = Random.Range(-10.0f, 10.0f);
+        moveHor = Random.Range(-20.0f, 20.0f);
+        moveVer = Random.Range(-20.0f, 20.0f);
         //add the new variable to add force and multiply by speed
         rb.AddForce(new Vector2(moveHor * enemySpeed, moveVer * enemySpeed));
     }
